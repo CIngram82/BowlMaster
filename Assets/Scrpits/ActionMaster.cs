@@ -6,33 +6,64 @@ public class ActionMaster {
     public enum Action { Tidy, Reset, EndTurn, Endgame}
 
     public int[] bowls = new int[21];
-    public int[] frames = new int[10];
-    private int ballThrow = 1;
+    public int ballThrow = 1;
 
     public Action Bowl(int pins)
     {
         if(pins < 0 || pins > 10) throw new UnityException("Invalid Number of pins");
         bowls[ballThrow - 1] = pins;
-        if (pins == 10) // strike
+
+        //Deal with last frame
+        if(ballThrow == 21)
         {
-            frames[ballThrow / 2] = 10;
+            return Action.Endgame;
+        }
+        if (ballThrow == 20 && !Bowl21Awarded())
+        {
+            ballThrow++;
+            return Action.Endgame;
+        }
+        else if (ballThrow == 20 && Bowl21Awarded() && bowls[19-1] == 10 && pins <10 )
+        {
+            ballThrow++;
+            return Action.Tidy;
+        }
+        if (ballThrow >= 19 && Bowl21Awarded())
+        {
+            ballThrow++;
+            return Action.Reset;
+        }
+
+        //Deal with frames 1 to 9
+        if (ballThrow % 2 != 0 && pins == 10) // strike
+        {
             ballThrow += 2;
             return Action.EndTurn;
         }
-
+        if (ballThrow % 2 == 0 && pins == 10) // 0/10 spare
+        {
+            ballThrow++;
+            return Action.EndTurn;
+        }
         if (ballThrow % 2 != 0) //first throw of the frame
         {
             ballThrow++;
             return Action.Tidy;
-        } else if (ballThrow % 2 == 0) //2nd throw of the frame
+        }
+        if (ballThrow % 2 == 0) //2nd throw of the frame
         {
-            frames[(ballThrow / 2)-1] = pins + bowls[ballThrow-2];
             ballThrow++;
             return Action.EndTurn;
         }
 
         throw new UnityException("Not sure what action to return");
        
+    }
+
+    private bool Bowl21Awarded()
+    {
+      
+        return (bowls[19-1] + bowls[20-1] >= 10);
     }
 
 }
