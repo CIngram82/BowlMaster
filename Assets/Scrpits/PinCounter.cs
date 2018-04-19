@@ -8,7 +8,7 @@ public class PinCounter : MonoBehaviour {
     private GameManager gameManager;
 
     public bool ballLeftBox = false;
-    public int lastSettledCount = 10;
+    private int lastSettledCount = 10;
 
     private float lastChangeTime = 0;
     private int lastStandingCount = -1;
@@ -26,6 +26,13 @@ public class PinCounter : MonoBehaviour {
         }else
         {
             scoreDisplay.UpdateText(Color.green, CountStanding().ToString());
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Ball>())
+        {
+            ballLeftBox = true;
         }
     }
 
