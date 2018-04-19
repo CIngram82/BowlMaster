@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 276409692}
   - component: {fileID: 276409694}
   - component: {fileID: 276409693}
+  - component: {fileID: 276409695}
   m_Layer: 5
   m_Name: Standing Pin Count
   m_TagString: Untagged
@@ -455,6 +456,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276409691}
+--- !u!114 &276409695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276409691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe544663916b3c40853edac7402b67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinCountTextBox: {fileID: 0}
 --- !u!1 &312728575
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +917,7 @@ GameObject:
   - component: {fileID: 710417254}
   - component: {fileID: 710417253}
   - component: {fileID: 710417252}
+  - component: {fileID: 710417255}
   m_Layer: 0
   m_Name: Lane Box
   m_TagString: Untagged
@@ -954,6 +968,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710417250}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &710417255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710417250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69234064b5eabf4bb7348e4904e6ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 0}
+  ballLeftBox: 0
+  lastSettledCount: 10
 --- !u!1 &806787932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1258,46 @@ Transform:
   - {fileID: 710417251}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1240811073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1240811075}
+  - component: {fileID: 1240811074}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1240811074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240811073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5cdad8205efc5428d3b90d1450b985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1240811075
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240811073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316306132
 GameObject:
@@ -1793,9 +1861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061a61cb952f5be4ebe0cdb88b316e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinCountTextBox: {fileID: 276409693}
   pinHolder: {fileID: 1885217888656832, guid: 56604cd5c84b7a44b8b72c1f1b74f66d, type: 2}
-  ballLeftBox: 0
 --- !u!65 &2068193539
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
 public class LaneBox : MonoBehaviour {
-    private PinSetter pinSetter;
+    private PinCounter pinCounter;
     private void Start()
     {
-        pinSetter = FindObjectOfType<PinSetter>();
+        pinCounter = FindObjectOfType<PinCounter>();
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<Ball>())
         {
-           pinSetter.ballLeftBox = true;
+           pinCounter.ballLeftBox = true;
         }
     }
 }
