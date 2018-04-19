@@ -31,10 +31,13 @@ public class BallDragLaunch : MonoBehaviour {
         float launchSpeedz = (dragEnd.y - dragStart.y)/dragTime;
         launchSpeedz = Mathf.Abs(launchSpeedz); // stops ball from going back. TODO find better way 
 
-        Vector3 launceVec3 = new Vector3(launchSpeedx,0,launchSpeedz);
 
-        ball.Launch(launceVec3);
-        ball.isLaunched = true;
+        Vector3 launceVec3 = new Vector3(launchSpeedx,0,launchSpeedz);
+        if (!ball.isLaunched)
+        {
+            ball.Launch(launceVec3);
+            ball.isLaunched = true;
+        }
     }
 
     public void MoveStart(float xNudge)

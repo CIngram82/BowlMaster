@@ -1,19 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PinSetter : MonoBehaviour {
     public Text pinCountTextBox;
-    public int lastStandingCount = -1;
     public GameObject pinHolder;
 
-    private ActionMaster actionMaster = new ActionMaster();
+    public bool ballLeftBox = false;
+
+    private List<int> pinFalls;
+    private int lastStandingCount = -1;
     private int lastSettledCount = 10;
-    private Ball ball;
-    private bool ballEteredBox = false;
     private float lastChangeTime = 0;
+    private ActionMaster actionMaster = new ActionMaster();
+
     private Animator animator;
+    private Ball ball;
 
     private void Start()
     {
@@ -21,10 +23,10 @@ public class PinSetter : MonoBehaviour {
         ball = FindObjectOfType<Ball>();
     }
     void Update () {
-        if (ballEteredBox)
+        if (ballLeftBox)
         {
             UpdateStandingCountAsPinsSettle();
-
+            pinCountTextBox.color = Color.red;
             pinCountTextBox.text = CountStanding().ToString();
         }
     }
@@ -51,11 +53,10 @@ public class PinSetter : MonoBehaviour {
         int pinFall = lastSettledCount - standing;
         lastSettledCount = standing;
         AnimationCall(pinFall);
-        Debug.Log("standing" + lastStandingCount );
         
 
         pinCountTextBox.color = Color.green;
-        ballEteredBox = false;
+        ballLeftBox = false;
         lastStandingCount = -1;
        
         ball.Reset();
@@ -94,20 +95,14 @@ public class PinSetter : MonoBehaviour {
         return numStandingPins;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Ball>())
-        {
-            ballEteredBox = true;
-            pinCountTextBox.color= Color.red;
-        }
-    }
+
 
     public void RaisePins()
     {
         foreach (Pins bowlingPin in FindObjectsOfType<Pins>())
         {
             bowlingPin.Raise();
+           
         }
     }
     public void LowerPins()

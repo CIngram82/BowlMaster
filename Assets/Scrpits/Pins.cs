@@ -32,6 +32,7 @@ public class Pins : MonoBehaviour {
         {
             myRigidbody.useGravity = false;
             myRigidbody.isKinematic = true;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.Translate(0, distanceToRaise, 0);
         }
     }
