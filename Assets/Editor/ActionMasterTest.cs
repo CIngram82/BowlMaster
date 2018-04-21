@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿/*
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using NUnit.Framework;
@@ -7,7 +8,7 @@ using NUnit.Framework;
 public class ActionMasterTest
 {
     private List<int> pinFalls;
-    private ActionMaster.Action endGame = ActionMaster.Action.Endgame;
+    private ActionMaster.Action endGame = ActionMaster.Action.EndGame;
     private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private ActionMaster.Action reset = ActionMaster.Action.Reset;
     private ActionMaster.Action tidy = ActionMaster.Action.Tidy;
@@ -125,4 +126,5 @@ public class ActionMasterTest
         pinFalls.Add(10);
       Assert.AreEqual(endTurn, ActionMaster.NextAction(pinFalls));
   }
-}
+  
+}*/

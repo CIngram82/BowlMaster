@@ -64,7 +64,7 @@ public class PinCounter : MonoBehaviour {
         ballLeftBox = false;
         lastStandingCount = -1;
 
-        gameManager.Temp(pinFall);
+        gameManager.Bowl(pinFall);
     }
     int CountStanding()
     {

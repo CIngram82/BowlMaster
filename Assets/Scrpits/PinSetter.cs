@@ -30,7 +30,7 @@ public class PinSetter : MonoBehaviour {
             animator.SetTrigger("resetTrigger");
             pinCounter.Reset();
         }
-        else if (action == ActionMaster.Action.Endgame)
+        else if (action == ActionMaster.Action.EndGame)
         {
             throw new UnityException("TODO : set up to end game");
         }

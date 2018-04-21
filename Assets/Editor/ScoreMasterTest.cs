@@ -1,9 +1,10 @@
-﻿using NUnit.Framework;
+﻿/*
+using NUnit.Framework;
 using System.Linq;
 
 [TestFixture]
 public class ScoreMasterTest {
-	
+	/*
 	[Test]
 	public void T00PassingTest () {
 		Assert.AreEqual (1, 1);
@@ -210,4 +211,4 @@ public class ScoreMasterTest {
 		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
 	}
     
-}
+} */

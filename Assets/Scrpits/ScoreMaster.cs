@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-public class ScoreMaster {
+public static class ScoreMaster {
 
     public static List<int> ScoreCumulative(List<int> rolls)
     {
